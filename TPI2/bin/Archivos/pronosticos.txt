@@ -1,0 +1,10 @@
+1;Celeste Severich;4189541;Argentina;true;false;false;Arabia Saudita;
+1;Celeste Severich;4189541;Polonia;false;true;false;Mexico;
+1;Celeste Severich;4189541;Inglaterra;true;false;false;Iran;
+1;Celeste Severich;4189541;Estados Unidos;true;false;false;Gales;
+1;Karen Dominguez;38789652;Argentina;true;false;false;Arabia Saudita;
+1;Karen Dominguez;38789652;Polonia;false;true;false;Mexico;
+1;Karen Dominguez;38789652;Inglaterra;true;false;false;Iran;
+1;Karen Dominguez;38789652;Estados Unidos;false;true;false;Gales;
+2;Karen Dominguez;38789652;Qatar;false;false;true;Senegal;
+2;Karen Dominguez;38789652;Paises Bajos;false;true;false;Ecuador;

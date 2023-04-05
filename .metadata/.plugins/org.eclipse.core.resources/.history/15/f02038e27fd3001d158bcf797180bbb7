@@ -1,0 +1,38 @@
+package Test;
+
+import java.util.ArrayList;
+
+import Modelo.Partido;
+import Modelo.Resultados;
+import Modelo.Usuario;
+
+public class TestTPI2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Modelos.Resultados resultado=new Modelos.Resultados("src\\main\\java\\Archivos");
+		resultado.setResultados();
+		resultado.mostrar_Rondas();
+		
+		
+		/*System.out.println("----------------------------------------");
+		
+		Usuario user1=new Usuario(1,"Celeste Severich","41578642");
+		ArrayList<Partido> pronosticoDeUser1=user1.setPartidos("src\\Archivos\\pronosticos.txt");
+		System.out.println("Pronostico de "+user1.getNombreCompleto());
+		user1.mostrar_Pronosticos();
+		System.out.println("----------------------------------------");
+		
+		int contador=0;
+		for (int i = 0; i < resultadosDeLaFecha.size(); i++) {
+			if(resultadosDeLaFecha.get(i).getResultado()==pronosticoDeUser1.get(i).getResultado()) {
+				contador+=1;
+			}
+		}
+		System.out.println("----------------------------------------");
+		System.out.println(user1.getNombreCompleto()+" su puntaje en esta fecha fue de "+contador);*/
+		
+		
+	}
+
+}
