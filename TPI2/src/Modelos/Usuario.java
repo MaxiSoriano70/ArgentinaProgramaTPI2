@@ -18,6 +18,30 @@ public class Usuario extends Persona{
 	public void setRondas(ArrayList<Ronda> rondas) {
 		this.rondas = rondas;
 	}
+	
+	public Ronda buscarRonda(ArrayList<Ronda> rondas, int numero) {
+	    for (Ronda ronda : rondas) {
+	        if (ronda.getNumero()==numero) {
+	            return ronda;
+	        }
+	    }
+	    return null;
+	}
+	
+	public boolean isRonda(ArrayList<Ronda> rondas, int numero) {
+		int is=0;
+	    for (Ronda ronda : rondas) {
+	        if (ronda.getNumero()==numero) {
+	            is=1;
+	        }
+	    }
+	    if(is==1) {
+	    	return true;
+	    }
+	    else {
+	    	return false;
+	    }
+	}
 
 	public int getPuntaje() {
 		return puntaje;
@@ -26,6 +50,7 @@ public class Usuario extends Persona{
 	public void setPuntaje(int puntaje) {
 		this.puntaje = puntaje;
 	}
+	
 	
 	public void calcular_Puntaje(ArrayList<Ronda> resultados) {
 		for(int i=0;i<resultados.size();i++) {
@@ -48,8 +73,9 @@ public class Usuario extends Persona{
 
 	public void mostrar_Pronosticos() {
 		ArrayList<Ronda> rondas = this.getRondas();
+		System.out.println("PRONOSTICO DE: "+this.getNombreCompleto());
 		for(int i=0;i<rondas.size();i++) {
-			System.out.print(this.getNombreCompleto()+" ronda "+rondas.get(i).getNumero()+" ");
+			System.out.println("RONDA "+rondas.get(i).getNumero()+" ");
 			rondas.get(i).mostrar_Resultados();
 		}
 	}

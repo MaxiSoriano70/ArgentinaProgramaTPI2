@@ -28,15 +28,39 @@ public class Resultados {
 	public void setRondas(ArrayList<Ronda> rondas) {
 		this.rondas = rondas;
 	}
+	
+	public Ronda buscarRonda(ArrayList<Ronda> rondas, int numero) {
+	    for (Ronda ronda : rondas) {
+	        if (ronda.getNumero()==numero) {
+	            return ronda;
+	        }
+	    }
+	    return null;
+	}
+	
+	public boolean isRonda(ArrayList<Ronda> rondas, int numero) {
+		int is=0;
+	    for (Ronda ronda : rondas) {
+	        if (ronda.getNumero()==numero) {
+	            is=1;
+	        }
+	    }
+	    if(is==1) {
+	    	return true;
+	    }
+	    else {
+	    	return false;
+	    }
+	}
 
 	public void setResultados(){
 		try {
 			for(String linea:Files.readAllLines(Paths.get(this.ruta))) {
 				int auxRonda=Integer.parseInt(linea.split(";")[0]);
-				Ronda ronda=new Ronda(auxRonda);
-				if(rondas.contains(ronda)) {
-					int lugarDeLaRonda = rondas.indexOf(ronda);
-					Ronda rondaselecionada=rondas.get(lugarDeLaRonda);
+				//VERIFICAMOS SI LA RONDA ESTA EN LA LISTA DE RONDAS
+				if(isRonda(getRondas(), auxRonda)) {
+					//BUSCAMOS LA RONDA Y LE AGREGAMOS EL PARTIDO
+					Ronda rondaselecionada=buscarRonda(getRondas(), auxRonda);
 					String local=linea.split(";")[1];
 					String visitante=linea.split(";")[4];
 					int golesLocal=Integer.valueOf(linea.split(";")[2]);
@@ -45,13 +69,17 @@ public class Resultados {
 					rondaselecionada.getPartidos().add(partido);
 				}
 				else {
+					//SI NO ESTA CREAMOS LA RONDA
+					Ronda ronda=new Ronda(auxRonda);
 					rondas.add(ronda);
+					//BUSCAMOS LA RONDA Y LE AGREGAMOS EL PARTIDO
+					Ronda rondaselecionada=buscarRonda(getRondas(), auxRonda);
 					String local=linea.split(";")[1];
 					String visitante=linea.split(";")[4];
 					int golesLocal=Integer.valueOf(linea.split(";")[2]);
 					int golesVisitante=Integer.valueOf(linea.split(";")[3]);
 					Partido partido=setPartido(local,visitante,golesLocal,golesVisitante);
-					ronda.getPartidos().add(partido);
+					rondaselecionada.getPartidos().add(partido);
 				}
 			}
 		} catch (IOException e) {

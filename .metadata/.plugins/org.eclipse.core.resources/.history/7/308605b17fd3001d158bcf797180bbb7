@@ -1,7 +1,0 @@
-package Modelo;
-
-public enum EGanador {
-	LOCAL,
-	EMPATE,
-	VISITANTE
-}
